@@ -5,8 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_appbar.dart';
+import 'package:tapinvest/core/design_system/widgets/custom_bottom_bar.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_chip.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_details_card.dart';
+import 'package:tapinvest/core/design_system/widgets/custom_primary_button.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_table_cell.dart';
 import 'package:tapinvest/core/models/scheme_details.dart';
 import 'package:tapinvest/gen/assets.gen.dart';
@@ -57,25 +59,44 @@ class _SchemeDetailsScreenContents
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: backToDeals,
-      ),
-      body: SingleChildScrollView(
-          child: Column(
-        children: [
-          schemeDetails(),
-          customDivider(),
-          clientsAndBackedBy(),
-          customDivider(),
-          highlights(),
-          customDivider(),
-          keyMetrics(),
-          customDivider(),
-          documentsView(),
-          gapH64
-        ],
-      )),
-    );
+        appBar: CustomAppBar(
+          title: backToDeals,
+        ),
+        body: SingleChildScrollView(
+            child: Column(
+          children: [
+            schemeDetails(),
+            customDivider(),
+            clientsAndBackedBy(),
+            customDivider(),
+            highlights(),
+            customDivider(),
+            keyMetrics(),
+            customDivider(),
+            documentsView(),
+            gapH64
+          ],
+        )),
+        bottomNavigationBar: CustomBottomBar(
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              RichText(
+                text: TextSpan(
+                  text: filled,
+                  style: secondaryTextStyle(size: 10),
+                  children: [
+                    TextSpan(text: '\n30%', style: primaryTextStyle(size: 18)),
+                  ],
+                ),
+              ),
+              CustomPrimaryButton(
+                text: tapToInvest,
+                onPressed: () {},
+              )
+            ],
+          ),
+        ));
   }
 
   Widget schemeDetails() {
@@ -88,12 +109,14 @@ class _SchemeDetailsScreenContents
             gapH16,
             RichText(
               text: TextSpan(
-                text: widget.schemeDetails.name,
-                style: boldTextStyle(),
+                text: '${widget.schemeDetails.name1} ',
+                style: boldTextStyle(size: headingTextSize),
                 children: [
+                  WidgetSpan(child: TapAssets.icons.icLeftArrow.svg()),
                   TextSpan(
-                      text: widget.schemeDetails.name,
-                      style: boldTextStyle(color: secondaryTextColor)),
+                      text: ' ${widget.schemeDetails.name2}',
+                      style: boldTextStyle(
+                          color: secondaryTextColor, size: headingTextSize)),
                 ],
               ),
             ),
@@ -254,7 +277,6 @@ class _SchemeDetailsScreenContents
       financialsView(),
       competitionsView(),
     ];
-
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(

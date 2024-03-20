@@ -22,3 +22,4 @@ const traction = 'TRACTION';
 const financials = 'FINANCIALS';
 const competitions = 'COMPETITIONS';
 const documents = 'Documents';
+const filled = 'FILLED';

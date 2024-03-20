@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'colors.dart';
 
 const double headingTextSize = 18;
@@ -87,7 +88,7 @@ TextStyle boldTextStyle({
   return TextStyle(
     fontSize: size ?? primaryTextSize,
     color: color ?? primaryTextColor,
-    fontWeight: weight ?? FontWeight.bold,
+    fontWeight: weight ?? FontWeight.w600,
     fontFamily: fontFamily,
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,

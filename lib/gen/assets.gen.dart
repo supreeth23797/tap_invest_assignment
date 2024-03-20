@@ -29,12 +29,16 @@ class $AssetsIconsGen {
   SvgGenImage get icDownload =>
       const SvgGenImage('assets/icons/ic_download.svg');
 
+  /// File path: assets/icons/ic_left_arrow.svg
+  SvgGenImage get icLeftArrow =>
+      const SvgGenImage('assets/icons/ic_left_arrow.svg');
+
   /// File path: assets/icons/ic_tab.svg
   SvgGenImage get icTab => const SvgGenImage('assets/icons/ic_tab.svg');
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [icAppbarBack, icBulb, icDocument, icDownload, icTab];
+      [icAppbarBack, icBulb, icDocument, icDownload, icLeftArrow, icTab];
 }
 
 class $AssetsLogosGen {

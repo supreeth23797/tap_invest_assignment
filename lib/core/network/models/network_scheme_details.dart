@@ -4,7 +4,8 @@ part 'network_scheme_details.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class NetworkSchemeDetails {
-  final String name;
+  final String name1;
+  final String name2;
   final String details;
   final String highlights;
   final int minInvestment;
@@ -22,7 +23,8 @@ class NetworkSchemeDetails {
   final String logo;
 
   NetworkSchemeDetails(
-      {this.name = '',
+      {this.name1 = '',
+      this.name2 = '',
       this.details = '',
       this.highlights = '',
       this.minInvestment = -1,

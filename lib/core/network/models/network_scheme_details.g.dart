@@ -9,7 +9,8 @@ part of 'network_scheme_details.dart';
 NetworkSchemeDetails _$NetworkSchemeDetailsFromJson(
         Map<String, dynamic> json) =>
     NetworkSchemeDetails(
-      name: json['name'] as String? ?? '',
+      name1: json['name1'] as String? ?? '',
+      name2: json['name2'] as String? ?? '',
       details: json['details'] as String? ?? '',
       highlights: json['highlights'] as String? ?? '',
       minInvestment: json['minInvestment'] as int? ?? -1,
@@ -33,7 +34,8 @@ NetworkSchemeDetails _$NetworkSchemeDetailsFromJson(
 Map<String, dynamic> _$NetworkSchemeDetailsToJson(
         NetworkSchemeDetails instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'name1': instance.name1,
+      'name2': instance.name2,
       'details': instance.details,
       'highlights': instance.highlights,
       'minInvestment': instance.minInvestment,

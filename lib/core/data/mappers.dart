@@ -3,7 +3,8 @@ import 'package:tapinvest/core/network/models/network_scheme_details.dart';
 
 extension SchemeDetailsMapper on NetworkSchemeDetails {
   SchemeDetails asModel() => SchemeDetails(
-        name: name,
+        name1: name1,
+        name2: name2,
         details: details,
         highlights: highlights,
         tenure: tenure,

@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SchemeDetails {
-  String get name => throw _privateConstructorUsedError;
+  String get name1 => throw _privateConstructorUsedError;
+
+  String get name2 => throw _privateConstructorUsedError;
 
   String get details => throw _privateConstructorUsedError;
 
@@ -37,15 +39,10 @@ mixin _$SchemeDetails {
   int get totalDeals => throw _privateConstructorUsedError;
 
   int get activeDeals => throw _privateConstructorUsedError;
-
   int get maturedDeals => throw _privateConstructorUsedError;
-
   double get onTimePaymentPercentage => throw _privateConstructorUsedError;
-
   String get invoiceDiscountingContract => throw _privateConstructorUsedError;
-
   String get companyPitchDeck => throw _privateConstructorUsedError;
-
   String get logo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -60,7 +57,8 @@ abstract class $SchemeDetailsCopyWith<$Res> {
       _$SchemeDetailsCopyWithImpl<$Res, SchemeDetails>;
   @useResult
   $Res call(
-      {String name,
+      {String name1,
+      String name2,
       String details,
       String highlights,
       int minInvestment,
@@ -91,7 +89,8 @@ class _$SchemeDetailsCopyWithImpl<$Res, $Val extends SchemeDetails>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name1 = null,
+    Object? name2 = null,
     Object? details = null,
     Object? highlights = null,
     Object? minInvestment = null,
@@ -109,9 +108,13 @@ class _$SchemeDetailsCopyWithImpl<$Res, $Val extends SchemeDetails>
     Object? logo = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      name1: null == name1
+          ? _value.name1
+          : name1 // ignore: cast_nullable_to_non_nullable
+              as String,
+      name2: null == name2
+          ? _value.name2
+          : name2 // ignore: cast_nullable_to_non_nullable
               as String,
       details: null == details
           ? _value.details
@@ -186,7 +189,8 @@ abstract class _$$_SchemeDetailsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {String name1,
+      String name2,
       String details,
       String highlights,
       int minInvestment,
@@ -215,7 +219,8 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name1 = null,
+    Object? name2 = null,
     Object? details = null,
     Object? highlights = null,
     Object? minInvestment = null,
@@ -233,9 +238,13 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
     Object? logo = null,
   }) {
     return _then(_$_SchemeDetails(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      name1: null == name1
+          ? _value.name1
+          : name1 // ignore: cast_nullable_to_non_nullable
+              as String,
+      name2: null == name2
+          ? _value.name2
+          : name2 // ignore: cast_nullable_to_non_nullable
               as String,
       details: null == details
           ? _value.details
@@ -305,7 +314,8 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
 
 class _$_SchemeDetails implements _SchemeDetails {
   const _$_SchemeDetails(
-      {required this.name,
+      {required this.name1,
+      required this.name2,
       required this.details,
       required this.highlights,
       required this.minInvestment,
@@ -323,7 +333,9 @@ class _$_SchemeDetails implements _SchemeDetails {
       required this.logo});
 
   @override
-  final String name;
+  final String name1;
+  @override
+  final String name2;
   @override
   final String details;
   @override
@@ -357,7 +369,7 @@ class _$_SchemeDetails implements _SchemeDetails {
 
   @override
   String toString() {
-    return 'SchemeDetails(name: $name, details: $details, highlights: $highlights, minInvestment: $minInvestment, tenure: $tenure, tenureUnit: $tenureUnit, netYield: $netYield, capRaisedPercentage: $capRaisedPercentage, capRaised: $capRaised, totalDeals: $totalDeals, activeDeals: $activeDeals, maturedDeals: $maturedDeals, onTimePaymentPercentage: $onTimePaymentPercentage, invoiceDiscountingContract: $invoiceDiscountingContract, companyPitchDeck: $companyPitchDeck, logo: $logo)';
+    return 'SchemeDetails(name1: $name1, name2: $name2, details: $details, highlights: $highlights, minInvestment: $minInvestment, tenure: $tenure, tenureUnit: $tenureUnit, netYield: $netYield, capRaisedPercentage: $capRaisedPercentage, capRaised: $capRaised, totalDeals: $totalDeals, activeDeals: $activeDeals, maturedDeals: $maturedDeals, onTimePaymentPercentage: $onTimePaymentPercentage, invoiceDiscountingContract: $invoiceDiscountingContract, companyPitchDeck: $companyPitchDeck, logo: $logo)';
   }
 
   @override
@@ -365,7 +377,8 @@ class _$_SchemeDetails implements _SchemeDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SchemeDetails &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.name1, name1) || other.name1 == name1) &&
+            (identical(other.name2, name2) || other.name2 == name2) &&
             (identical(other.details, details) || other.details == details) &&
             (identical(other.highlights, highlights) ||
                 other.highlights == highlights) &&
@@ -401,7 +414,8 @@ class _$_SchemeDetails implements _SchemeDetails {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      name,
+      name1,
+      name2,
       details,
       highlights,
       minInvestment,
@@ -427,7 +441,8 @@ class _$_SchemeDetails implements _SchemeDetails {
 
 abstract class _SchemeDetails implements SchemeDetails {
   const factory _SchemeDetails(
-      {required final String name,
+      {required final String name1,
+      required final String name2,
       required final String details,
       required final String highlights,
       required final int minInvestment,
@@ -445,34 +460,37 @@ abstract class _SchemeDetails implements SchemeDetails {
       required final String logo}) = _$_SchemeDetails;
 
   @override
-  String get name;
+  String get name1;
+
+  @override
+  String get name2;
+
   @override
   String get details;
+
   @override
   String get highlights;
+
   @override
   int get minInvestment;
+
   @override
   int get tenure;
+
   @override
   String get tenureUnit;
   @override
   double get netYield;
   @override
   double get capRaisedPercentage;
-
   @override
   double get capRaised;
-
   @override
   int get totalDeals;
-
   @override
   int get activeDeals;
-
   @override
   int get maturedDeals;
-
   @override
   double get onTimePaymentPercentage;
   @override

@@ -5,7 +5,8 @@ part 'scheme_details.freezed.dart';
 @freezed
 class SchemeDetails with _$SchemeDetails {
   const factory SchemeDetails({
-    required String name,
+    required String name1,
+    required String name2,
     required String details,
     required String highlights,
     required int minInvestment,
