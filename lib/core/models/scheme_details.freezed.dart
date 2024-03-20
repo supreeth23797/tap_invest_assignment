@@ -18,6 +18,36 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SchemeDetails {
   String get name => throw _privateConstructorUsedError;
 
+  String get details => throw _privateConstructorUsedError;
+
+  String get highlights => throw _privateConstructorUsedError;
+
+  int get minInvestment => throw _privateConstructorUsedError;
+
+  int get tenure => throw _privateConstructorUsedError;
+
+  String get tenureUnit => throw _privateConstructorUsedError;
+
+  double get netYield => throw _privateConstructorUsedError;
+
+  double get capRaisedPercentage => throw _privateConstructorUsedError;
+
+  double get capRaised => throw _privateConstructorUsedError;
+
+  double get totalDeals => throw _privateConstructorUsedError;
+
+  double get activeDeals => throw _privateConstructorUsedError;
+
+  double get maturedDeals => throw _privateConstructorUsedError;
+
+  double get onTimePaymentPercentage => throw _privateConstructorUsedError;
+
+  String get invoiceDiscountingContract => throw _privateConstructorUsedError;
+
+  String get companyPitchDeck => throw _privateConstructorUsedError;
+
+  String get logo => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $SchemeDetailsCopyWith<SchemeDetails> get copyWith =>
       throw _privateConstructorUsedError;
@@ -28,8 +58,25 @@ abstract class $SchemeDetailsCopyWith<$Res> {
   factory $SchemeDetailsCopyWith(
           SchemeDetails value, $Res Function(SchemeDetails) then) =
       _$SchemeDetailsCopyWithImpl<$Res, SchemeDetails>;
+
   @useResult
-  $Res call({String name});
+  $Res call(
+      {String name,
+      String details,
+      String highlights,
+      int minInvestment,
+      int tenure,
+      String tenureUnit,
+      double netYield,
+      double capRaisedPercentage,
+      double capRaised,
+      double totalDeals,
+      double activeDeals,
+      double maturedDeals,
+      double onTimePaymentPercentage,
+      String invoiceDiscountingContract,
+      String companyPitchDeck,
+      String logo});
 }
 
 /// @nodoc
@@ -46,11 +93,86 @@ class _$SchemeDetailsCopyWithImpl<$Res, $Val extends SchemeDetails>
   @override
   $Res call({
     Object? name = null,
+    Object? details = null,
+    Object? highlights = null,
+    Object? minInvestment = null,
+    Object? tenure = null,
+    Object? tenureUnit = null,
+    Object? netYield = null,
+    Object? capRaisedPercentage = null,
+    Object? capRaised = null,
+    Object? totalDeals = null,
+    Object? activeDeals = null,
+    Object? maturedDeals = null,
+    Object? onTimePaymentPercentage = null,
+    Object? invoiceDiscountingContract = null,
+    Object? companyPitchDeck = null,
+    Object? logo = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      details: null == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String,
+      highlights: null == highlights
+          ? _value.highlights
+          : highlights // ignore: cast_nullable_to_non_nullable
+              as String,
+      minInvestment: null == minInvestment
+          ? _value.minInvestment
+          : minInvestment // ignore: cast_nullable_to_non_nullable
+              as int,
+      tenure: null == tenure
+          ? _value.tenure
+          : tenure // ignore: cast_nullable_to_non_nullable
+              as int,
+      tenureUnit: null == tenureUnit
+          ? _value.tenureUnit
+          : tenureUnit // ignore: cast_nullable_to_non_nullable
+              as String,
+      netYield: null == netYield
+          ? _value.netYield
+          : netYield // ignore: cast_nullable_to_non_nullable
+              as double,
+      capRaisedPercentage: null == capRaisedPercentage
+          ? _value.capRaisedPercentage
+          : capRaisedPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
+      capRaised: null == capRaised
+          ? _value.capRaised
+          : capRaised // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalDeals: null == totalDeals
+          ? _value.totalDeals
+          : totalDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      activeDeals: null == activeDeals
+          ? _value.activeDeals
+          : activeDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      maturedDeals: null == maturedDeals
+          ? _value.maturedDeals
+          : maturedDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      onTimePaymentPercentage: null == onTimePaymentPercentage
+          ? _value.onTimePaymentPercentage
+          : onTimePaymentPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
+      invoiceDiscountingContract: null == invoiceDiscountingContract
+          ? _value.invoiceDiscountingContract
+          : invoiceDiscountingContract // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyPitchDeck: null == companyPitchDeck
+          ? _value.companyPitchDeck
+          : companyPitchDeck // ignore: cast_nullable_to_non_nullable
+              as String,
+      logo: null == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -62,9 +184,26 @@ abstract class _$$_SchemeDetailsCopyWith<$Res>
   factory _$$_SchemeDetailsCopyWith(
           _$_SchemeDetails value, $Res Function(_$_SchemeDetails) then) =
       __$$_SchemeDetailsCopyWithImpl<$Res>;
+
   @override
   @useResult
-  $Res call({String name});
+  $Res call(
+      {String name,
+      String details,
+      String highlights,
+      int minInvestment,
+      int tenure,
+      String tenureUnit,
+      double netYield,
+      double capRaisedPercentage,
+      double capRaised,
+      double totalDeals,
+      double activeDeals,
+      double maturedDeals,
+      double onTimePaymentPercentage,
+      String invoiceDiscountingContract,
+      String companyPitchDeck,
+      String logo});
 }
 
 /// @nodoc
@@ -79,11 +218,86 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? details = null,
+    Object? highlights = null,
+    Object? minInvestment = null,
+    Object? tenure = null,
+    Object? tenureUnit = null,
+    Object? netYield = null,
+    Object? capRaisedPercentage = null,
+    Object? capRaised = null,
+    Object? totalDeals = null,
+    Object? activeDeals = null,
+    Object? maturedDeals = null,
+    Object? onTimePaymentPercentage = null,
+    Object? invoiceDiscountingContract = null,
+    Object? companyPitchDeck = null,
+    Object? logo = null,
   }) {
     return _then(_$_SchemeDetails(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      details: null == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String,
+      highlights: null == highlights
+          ? _value.highlights
+          : highlights // ignore: cast_nullable_to_non_nullable
+              as String,
+      minInvestment: null == minInvestment
+          ? _value.minInvestment
+          : minInvestment // ignore: cast_nullable_to_non_nullable
+              as int,
+      tenure: null == tenure
+          ? _value.tenure
+          : tenure // ignore: cast_nullable_to_non_nullable
+              as int,
+      tenureUnit: null == tenureUnit
+          ? _value.tenureUnit
+          : tenureUnit // ignore: cast_nullable_to_non_nullable
+              as String,
+      netYield: null == netYield
+          ? _value.netYield
+          : netYield // ignore: cast_nullable_to_non_nullable
+              as double,
+      capRaisedPercentage: null == capRaisedPercentage
+          ? _value.capRaisedPercentage
+          : capRaisedPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
+      capRaised: null == capRaised
+          ? _value.capRaised
+          : capRaised // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalDeals: null == totalDeals
+          ? _value.totalDeals
+          : totalDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      activeDeals: null == activeDeals
+          ? _value.activeDeals
+          : activeDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      maturedDeals: null == maturedDeals
+          ? _value.maturedDeals
+          : maturedDeals // ignore: cast_nullable_to_non_nullable
+              as double,
+      onTimePaymentPercentage: null == onTimePaymentPercentage
+          ? _value.onTimePaymentPercentage
+          : onTimePaymentPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
+      invoiceDiscountingContract: null == invoiceDiscountingContract
+          ? _value.invoiceDiscountingContract
+          : invoiceDiscountingContract // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyPitchDeck: null == companyPitchDeck
+          ? _value.companyPitchDeck
+          : companyPitchDeck // ignore: cast_nullable_to_non_nullable
+              as String,
+      logo: null == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -92,14 +306,60 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SchemeDetails implements _SchemeDetails {
-  const _$_SchemeDetails({required this.name});
+  const _$_SchemeDetails(
+      {required this.name,
+      required this.details,
+      required this.highlights,
+      required this.minInvestment,
+      required this.tenure,
+      required this.tenureUnit,
+      required this.netYield,
+      required this.capRaisedPercentage,
+      required this.capRaised,
+      required this.totalDeals,
+      required this.activeDeals,
+      required this.maturedDeals,
+      required this.onTimePaymentPercentage,
+      required this.invoiceDiscountingContract,
+      required this.companyPitchDeck,
+      required this.logo});
 
   @override
   final String name;
+  @override
+  final String details;
+  @override
+  final String highlights;
+  @override
+  final int minInvestment;
+  @override
+  final int tenure;
+  @override
+  final String tenureUnit;
+  @override
+  final double netYield;
+  @override
+  final double capRaisedPercentage;
+  @override
+  final double capRaised;
+  @override
+  final double totalDeals;
+  @override
+  final double activeDeals;
+  @override
+  final double maturedDeals;
+  @override
+  final double onTimePaymentPercentage;
+  @override
+  final String invoiceDiscountingContract;
+  @override
+  final String companyPitchDeck;
+  @override
+  final String logo;
 
   @override
   String toString() {
-    return 'SchemeDetails(name: $name)';
+    return 'SchemeDetails(name: $name, details: $details, highlights: $highlights, minInvestment: $minInvestment, tenure: $tenure, tenureUnit: $tenureUnit, netYield: $netYield, capRaisedPercentage: $capRaisedPercentage, capRaised: $capRaised, totalDeals: $totalDeals, activeDeals: $activeDeals, maturedDeals: $maturedDeals, onTimePaymentPercentage: $onTimePaymentPercentage, invoiceDiscountingContract: $invoiceDiscountingContract, companyPitchDeck: $companyPitchDeck, logo: $logo)';
   }
 
   @override
@@ -107,11 +367,58 @@ class _$_SchemeDetails implements _SchemeDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SchemeDetails &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.details, details) || other.details == details) &&
+            (identical(other.highlights, highlights) ||
+                other.highlights == highlights) &&
+            (identical(other.minInvestment, minInvestment) ||
+                other.minInvestment == minInvestment) &&
+            (identical(other.tenure, tenure) || other.tenure == tenure) &&
+            (identical(other.tenureUnit, tenureUnit) ||
+                other.tenureUnit == tenureUnit) &&
+            (identical(other.netYield, netYield) ||
+                other.netYield == netYield) &&
+            (identical(other.capRaisedPercentage, capRaisedPercentage) ||
+                other.capRaisedPercentage == capRaisedPercentage) &&
+            (identical(other.capRaised, capRaised) ||
+                other.capRaised == capRaised) &&
+            (identical(other.totalDeals, totalDeals) ||
+                other.totalDeals == totalDeals) &&
+            (identical(other.activeDeals, activeDeals) ||
+                other.activeDeals == activeDeals) &&
+            (identical(other.maturedDeals, maturedDeals) ||
+                other.maturedDeals == maturedDeals) &&
+            (identical(
+                    other.onTimePaymentPercentage, onTimePaymentPercentage) ||
+                other.onTimePaymentPercentage == onTimePaymentPercentage) &&
+            (identical(other.invoiceDiscountingContract,
+                    invoiceDiscountingContract) ||
+                other.invoiceDiscountingContract ==
+                    invoiceDiscountingContract) &&
+            (identical(other.companyPitchDeck, companyPitchDeck) ||
+                other.companyPitchDeck == companyPitchDeck) &&
+            (identical(other.logo, logo) || other.logo == logo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      details,
+      highlights,
+      minInvestment,
+      tenure,
+      tenureUnit,
+      netYield,
+      capRaisedPercentage,
+      capRaised,
+      totalDeals,
+      activeDeals,
+      maturedDeals,
+      onTimePaymentPercentage,
+      invoiceDiscountingContract,
+      companyPitchDeck,
+      logo);
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +428,72 @@ class _$_SchemeDetails implements _SchemeDetails {
 }
 
 abstract class _SchemeDetails implements SchemeDetails {
-  const factory _SchemeDetails({required final String name}) = _$_SchemeDetails;
+  const factory _SchemeDetails(
+      {required final String name,
+      required final String details,
+      required final String highlights,
+      required final int minInvestment,
+      required final int tenure,
+      required final String tenureUnit,
+      required final double netYield,
+      required final double capRaisedPercentage,
+      required final double capRaised,
+      required final double totalDeals,
+      required final double activeDeals,
+      required final double maturedDeals,
+      required final double onTimePaymentPercentage,
+      required final String invoiceDiscountingContract,
+      required final String companyPitchDeck,
+      required final String logo}) = _$_SchemeDetails;
 
   @override
   String get name;
+
+  @override
+  String get details;
+
+  @override
+  String get highlights;
+
+  @override
+  int get minInvestment;
+
+  @override
+  int get tenure;
+
+  @override
+  String get tenureUnit;
+
+  @override
+  double get netYield;
+
+  @override
+  double get capRaisedPercentage;
+
+  @override
+  double get capRaised;
+
+  @override
+  double get totalDeals;
+
+  @override
+  double get activeDeals;
+
+  @override
+  double get maturedDeals;
+
+  @override
+  double get onTimePaymentPercentage;
+
+  @override
+  String get invoiceDiscountingContract;
+
+  @override
+  String get companyPitchDeck;
+
+  @override
+  String get logo;
+
   @override
   @JsonKey(ignore: true)
   _$$_SchemeDetailsCopyWith<_$_SchemeDetails> get copyWith =>

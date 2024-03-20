@@ -3,13 +3,13 @@
 ///  FlutterGen
 /// *****************************************************
 
+import 'package:flutter/services.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
@@ -18,8 +18,36 @@ class $AssetsIconsGen {
   SvgGenImage get icAppbarBack =>
       const SvgGenImage('assets/icons/ic_appbar_back.svg');
 
+  /// File path: assets/icons/ic_bulb.svg
+  SvgGenImage get icBulb => const SvgGenImage('assets/icons/ic_bulb.svg');
+
+  /// File path: assets/icons/ic_document.svg
+  SvgGenImage get icDocument =>
+      const SvgGenImage('assets/icons/ic_document.svg');
+
+  /// File path: assets/icons/ic_download.svg
+  SvgGenImage get icDownload =>
+      const SvgGenImage('assets/icons/ic_download.svg');
+
+  /// File path: assets/icons/ic_tab.svg
+  SvgGenImage get icTab => const SvgGenImage('assets/icons/ic_tab.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [icAppbarBack];
+  List<SvgGenImage> get values =>
+      [icAppbarBack, icBulb, icDocument, icDownload, icTab];
+}
+
+class $AssetsLogosGen {
+  const $AssetsLogosGen();
+
+  /// File path: assets/logos/google.png
+  AssetGenImage get google => const AssetGenImage('assets/logos/google.png');
+
+  /// File path: assets/logos/ic_google.svg
+  SvgGenImage get icGoogle => const SvgGenImage('assets/logos/ic_google.svg');
+
+  /// List of all assets
+  List<dynamic> get values => [google, icGoogle];
 }
 
 class TapAssets {
@@ -28,6 +56,85 @@ class TapAssets {
   static const String package = 'tapinvest';
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsLogosGen logos = $AssetsLogosGen();
+}
+
+class AssetGenImage {
+  const AssetGenImage(this._assetName);
+
+  final String _assetName;
+
+  static const String package = 'tapinvest';
+
+  Image image({
+    Key? key,
+    AssetBundle? bundle,
+    ImageFrameBuilder? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
+    bool excludeFromSemantics = false,
+    double? scale,
+    double? width,
+    double? height,
+    Color? color,
+    Animation<double>? opacity,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    Rect? centerSlice,
+    bool matchTextDirection = false,
+    bool gaplessPlayback = false,
+    bool isAntiAlias = false,
+    @Deprecated('Do not specify package for a generated library asset')
+        String? package = package,
+    FilterQuality filterQuality = FilterQuality.low,
+    int? cacheWidth,
+    int? cacheHeight,
+  }) {
+    return Image.asset(
+      _assetName,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      semanticLabel: semanticLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
+      width: width,
+      height: height,
+      color: color,
+      opacity: opacity,
+      colorBlendMode: colorBlendMode,
+      fit: fit,
+      alignment: alignment,
+      repeat: repeat,
+      centerSlice: centerSlice,
+      matchTextDirection: matchTextDirection,
+      gaplessPlayback: gaplessPlayback,
+      isAntiAlias: isAntiAlias,
+      package: package,
+      filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({
+    AssetBundle? bundle,
+    @Deprecated('Do not specify package for a generated library asset')
+        String? package = package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => 'packages/tapinvest/$_assetName';
 }
 
 class SvgGenImage {
