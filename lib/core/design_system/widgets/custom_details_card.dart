@@ -37,21 +37,26 @@ class CustomDetailsCard extends StatelessWidget {
             icon,
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
+                    flex: 3,
                     child: Column(
-                  children: [
-                    if (title != null) ...[
-                      Text(title!, style: boldTextStyle(size: 16)),
-                      gapH8,
-                    ],
-                    Text(
-                      message,
-                      style: secondaryTextStyle(),
-                    )
-                  ],
-                )),
-                if (actionIconBtn != null) ...[Flexible(child: actionIconBtn!)]
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (title != null) ...[
+                          Text(title!, style: boldTextStyle(size: 16)),
+                          gapH8,
+                        ],
+                        Text(
+                          message,
+                          style: secondaryTextStyle(),
+                        )
+                      ],
+                    )),
+                if (actionIconBtn != null) ...[
+                  Flexible(flex: 1, child: actionIconBtn!)
+                ]
               ],
             )
           ],

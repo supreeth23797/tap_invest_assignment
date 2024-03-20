@@ -34,11 +34,11 @@ mixin _$SchemeDetails {
 
   double get capRaised => throw _privateConstructorUsedError;
 
-  double get totalDeals => throw _privateConstructorUsedError;
+  int get totalDeals => throw _privateConstructorUsedError;
 
-  double get activeDeals => throw _privateConstructorUsedError;
+  int get activeDeals => throw _privateConstructorUsedError;
 
-  double get maturedDeals => throw _privateConstructorUsedError;
+  int get maturedDeals => throw _privateConstructorUsedError;
 
   double get onTimePaymentPercentage => throw _privateConstructorUsedError;
 
@@ -58,7 +58,6 @@ abstract class $SchemeDetailsCopyWith<$Res> {
   factory $SchemeDetailsCopyWith(
           SchemeDetails value, $Res Function(SchemeDetails) then) =
       _$SchemeDetailsCopyWithImpl<$Res, SchemeDetails>;
-
   @useResult
   $Res call(
       {String name,
@@ -70,9 +69,9 @@ abstract class $SchemeDetailsCopyWith<$Res> {
       double netYield,
       double capRaisedPercentage,
       double capRaised,
-      double totalDeals,
-      double activeDeals,
-      double maturedDeals,
+      int totalDeals,
+      int activeDeals,
+      int maturedDeals,
       double onTimePaymentPercentage,
       String invoiceDiscountingContract,
       String companyPitchDeck,
@@ -149,15 +148,15 @@ class _$SchemeDetailsCopyWithImpl<$Res, $Val extends SchemeDetails>
       totalDeals: null == totalDeals
           ? _value.totalDeals
           : totalDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       activeDeals: null == activeDeals
           ? _value.activeDeals
           : activeDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maturedDeals: null == maturedDeals
           ? _value.maturedDeals
           : maturedDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       onTimePaymentPercentage: null == onTimePaymentPercentage
           ? _value.onTimePaymentPercentage
           : onTimePaymentPercentage // ignore: cast_nullable_to_non_nullable
@@ -184,7 +183,6 @@ abstract class _$$_SchemeDetailsCopyWith<$Res>
   factory _$$_SchemeDetailsCopyWith(
           _$_SchemeDetails value, $Res Function(_$_SchemeDetails) then) =
       __$$_SchemeDetailsCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -197,9 +195,9 @@ abstract class _$$_SchemeDetailsCopyWith<$Res>
       double netYield,
       double capRaisedPercentage,
       double capRaised,
-      double totalDeals,
-      double activeDeals,
-      double maturedDeals,
+      int totalDeals,
+      int activeDeals,
+      int maturedDeals,
       double onTimePaymentPercentage,
       String invoiceDiscountingContract,
       String companyPitchDeck,
@@ -274,15 +272,15 @@ class __$$_SchemeDetailsCopyWithImpl<$Res>
       totalDeals: null == totalDeals
           ? _value.totalDeals
           : totalDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       activeDeals: null == activeDeals
           ? _value.activeDeals
           : activeDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       maturedDeals: null == maturedDeals
           ? _value.maturedDeals
           : maturedDeals // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       onTimePaymentPercentage: null == onTimePaymentPercentage
           ? _value.onTimePaymentPercentage
           : onTimePaymentPercentage // ignore: cast_nullable_to_non_nullable
@@ -343,11 +341,11 @@ class _$_SchemeDetails implements _SchemeDetails {
   @override
   final double capRaised;
   @override
-  final double totalDeals;
+  final int totalDeals;
   @override
-  final double activeDeals;
+  final int activeDeals;
   @override
-  final double maturedDeals;
+  final int maturedDeals;
   @override
   final double onTimePaymentPercentage;
   @override
@@ -438,9 +436,9 @@ abstract class _SchemeDetails implements SchemeDetails {
       required final double netYield,
       required final double capRaisedPercentage,
       required final double capRaised,
-      required final double totalDeals,
-      required final double activeDeals,
-      required final double maturedDeals,
+      required final int totalDeals,
+      required final int activeDeals,
+      required final int maturedDeals,
       required final double onTimePaymentPercentage,
       required final String invoiceDiscountingContract,
       required final String companyPitchDeck,
@@ -448,25 +446,18 @@ abstract class _SchemeDetails implements SchemeDetails {
 
   @override
   String get name;
-
   @override
   String get details;
-
   @override
   String get highlights;
-
   @override
   int get minInvestment;
-
   @override
   int get tenure;
-
   @override
   String get tenureUnit;
-
   @override
   double get netYield;
-
   @override
   double get capRaisedPercentage;
 
@@ -474,26 +465,22 @@ abstract class _SchemeDetails implements SchemeDetails {
   double get capRaised;
 
   @override
-  double get totalDeals;
+  int get totalDeals;
 
   @override
-  double get activeDeals;
+  int get activeDeals;
 
   @override
-  double get maturedDeals;
+  int get maturedDeals;
 
   @override
   double get onTimePaymentPercentage;
-
   @override
   String get invoiceDiscountingContract;
-
   @override
   String get companyPitchDeck;
-
   @override
   String get logo;
-
   @override
   @JsonKey(ignore: true)
   _$$_SchemeDetailsCopyWith<_$_SchemeDetails> get copyWith =>

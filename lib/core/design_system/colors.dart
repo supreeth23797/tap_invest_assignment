@@ -9,4 +9,5 @@ const Color buttonEnabledColor = primaryColor;
 const Color buttonDisabledColor = Color(0xffC8D4DD);
 const Color buttonTextColor = Colors.white;
 const Color tableBgColor = Color.fromRGBO(0, 0, 0, 0.02);
-const Color tableTitleColor = Color(0xFF78716C);
+const Color secondaryTitleColor = Color(0xFF78716C);
+const Color chipBgColor = Color(0xFFE7E5E4);

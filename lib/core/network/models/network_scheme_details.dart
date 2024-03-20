@@ -13,9 +13,9 @@ class NetworkSchemeDetails {
   final double netYield;
   final double capRaisedPercentage;
   final double capRaised;
-  final double totalDeals;
-  final double activeDeals;
-  final double maturedDeals;
+  final int totalDeals;
+  final int activeDeals;
+  final int maturedDeals;
   final double onTimePaymentPercentage;
   final String invoiceDiscountingContract;
   final String companyPitchDeck;

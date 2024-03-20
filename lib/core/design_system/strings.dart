@@ -16,3 +16,9 @@ const String invDiscountingContractInfo =
 const String compPitchDeckTitle = 'Company Pitch Deck';
 const String compPitchDeckInfo =
     'Read more about the company and see how they pitch to investors.';
+const keyMetric = 'Key Metrics';
+const funding = 'FUNDING';
+const traction = 'TRACTION';
+const financials = 'FINANCIALS';
+const competitions = 'COMPETITIONS';
+const documents = 'Documents';

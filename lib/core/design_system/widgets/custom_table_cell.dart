@@ -19,7 +19,7 @@ class CustomTableCell extends StatelessWidget {
           if (title != null) ...[
             Text(
               title!,
-              style: boldTextStyle(color: tableTitleColor, size: 10),
+              style: boldTextStyle(color: secondaryTitleColor, size: 10),
             ),
             gapH8
           ],

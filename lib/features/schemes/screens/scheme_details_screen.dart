@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_appbar.dart';
+import 'package:tapinvest/core/design_system/widgets/custom_chip.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_details_card.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_table_cell.dart';
 import 'package:tapinvest/core/models/scheme_details.dart';
@@ -49,7 +50,10 @@ class SchemeDetailsScreenContents extends ConsumerStatefulWidget {
       _SchemeDetailsScreenContents();
 }
 
-class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenContents> {
+class _SchemeDetailsScreenContents
+    extends ConsumerState<SchemeDetailsScreenContents> {
+  String selectedChip = financials;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +67,12 @@ class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenCont
           customDivider(),
           clientsAndBackedBy(),
           customDivider(),
-          highlights()
+          highlights(),
+          customDivider(),
+          keyMetrics(),
+          customDivider(),
+          documentsView(),
+          gapH64
         ],
       )),
     );
@@ -71,7 +80,7 @@ class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenCont
 
   Widget schemeDetails() {
     return Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -172,7 +181,7 @@ class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenCont
     return Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               clients,
@@ -209,12 +218,13 @@ class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenCont
     ];
     return Padding(
         padding: const EdgeInsets.all(24),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Text(
             highlight,
             style: boldTextStyle(),
           ),
-          gapH12,
+          gapH20,
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -228,5 +238,162 @@ class _SchemeDetailsScreenContents extends ConsumerState<SchemeDetailsScreenCont
                 ],
               ))
         ]));
+  }
+
+  Widget keyMetrics() {
+    List<String> keyMetricsList = [
+      funding,
+      traction,
+      financials,
+      competitions,
+    ];
+
+    List<Widget> keyMetricsDetailsList = [
+      fundingView(),
+      tractionView(),
+      financialsView(),
+      competitionsView(),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            keyMetric,
+            style: boldTextStyle(),
+          ),
+          gapH20,
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ...keyMetricsList.map((item) => CustomChip(
+                        text: item,
+                        isSelected: selectedChip == item,
+                        margin: const EdgeInsets.only(right: 10),
+                        onTap: () {
+                          setState(() {
+                            selectedChip = item;
+                          });
+                        },
+                      )),
+                ],
+              )),
+          gapH24,
+          keyMetricsDetailsList[keyMetricsList.indexOf(selectedChip)]
+        ],
+      ),
+    );
+  }
+
+  Widget fundingView() {
+    return CustomTable(rows: [
+      TableRow(children: [
+        CustomTableCell(
+          title: activeDeals,
+          body: RichText(
+            text: TextSpan(
+              text: widget.schemeDetails.activeDeals.toString(),
+              style: primaryTextStyle(),
+              children: [
+                TextSpan(
+                    text: ' of ${widget.schemeDetails.totalDeals}',
+                    style: secondaryTextStyle()),
+              ],
+            ),
+          ),
+        ),
+        CustomTableCell(
+          title: raised,
+          body: RichText(
+            text: TextSpan(
+              text: CURRENCY,
+              style: secondaryTextStyle(),
+              children: [
+                TextSpan(
+                    text: widget.schemeDetails.capRaised.toString(),
+                    style: primaryTextStyle()),
+              ],
+            ),
+          ),
+        )
+      ]),
+      TableRow(children: [
+        CustomTableCell(
+          title: maturedDeals,
+          body: RichText(
+            text: TextSpan(
+              text: widget.schemeDetails.maturedDeals.toString(),
+              style: primaryTextStyle(),
+              children: [
+                TextSpan(
+                    text: ' of ${widget.schemeDetails.totalDeals}',
+                    style: secondaryTextStyle()),
+              ],
+            ),
+          ),
+        ),
+        CustomTableCell(
+          title: activeDeals,
+          body: RichText(
+            text: TextSpan(
+              text: widget.schemeDetails.onTimePaymentPercentage.toString(),
+              style: primaryTextStyle(),
+              children: [
+                TextSpan(text: '%', style: secondaryTextStyle()),
+              ],
+            ),
+          ),
+        ),
+      ])
+    ]);
+  }
+
+  Widget tractionView() {
+    return fundingView();
+  }
+
+  Widget financialsView() {
+    return fundingView();
+  }
+
+  Widget competitionsView() {
+    return fundingView();
+  }
+
+  Widget documentsView() {
+    return Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              documents,
+              style: boldTextStyle(),
+            ),
+            gapH20,
+            CustomDetailsCard(
+              icon: TapAssets.icons.icDocument.svg(),
+              title: invDiscountingContractTitle,
+              message: invDiscountingContractInfo,
+              actionIconBtn: IconButton(
+                icon: TapAssets.icons.icDownload.svg(),
+                onPressed: () {},
+              ),
+            ),
+            gapH16,
+            CustomDetailsCard(
+              icon: TapAssets.icons.icDocument.svg(),
+              title: invDiscountingContractTitle,
+              message: invDiscountingContractInfo,
+              actionIconBtn: IconButton(
+                icon: TapAssets.icons.icDownload.svg(),
+                onPressed: () {},
+              ),
+            )
+          ],
+        ));
   }
 }

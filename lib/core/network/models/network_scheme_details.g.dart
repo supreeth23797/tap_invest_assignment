@@ -19,9 +19,9 @@ NetworkSchemeDetails _$NetworkSchemeDetailsFromJson(
       capRaisedPercentage:
           (json['capRaisedPercentage'] as num?)?.toDouble() ?? -1,
       capRaised: (json['capRaised'] as num?)?.toDouble() ?? -1,
-      totalDeals: (json['totalDeals'] as num?)?.toDouble() ?? -1,
-      activeDeals: (json['activeDeals'] as num?)?.toDouble() ?? -1,
-      maturedDeals: (json['maturedDeals'] as num?)?.toDouble() ?? -1,
+      totalDeals: json['totalDeals'] as int? ?? -1,
+      activeDeals: json['activeDeals'] as int? ?? -1,
+      maturedDeals: json['maturedDeals'] as int? ?? -1,
       onTimePaymentPercentage:
           (json['onTimePaymentPercentage'] as num?)?.toDouble() ?? -1,
       invoiceDiscountingContract:
