@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 
 import 'features/routing/app_router.dart';
@@ -22,6 +23,7 @@ class MyApp extends ConsumerWidget {
           primaryColor: primaryColor,
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: customBgColor,
+          textTheme: GoogleFonts.interTextTheme(),
           appBarTheme: const AppBarTheme(
             backgroundColor: customBgColor,
             elevation: 0,

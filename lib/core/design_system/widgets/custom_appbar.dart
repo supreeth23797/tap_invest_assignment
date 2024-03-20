@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/styles.dart';
@@ -16,17 +16,21 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       toolbarHeight: 90,
-      title: Text(title ?? '', style: primaryTextStyle(color: primaryColor),),
+      title: Text(
+        title ?? '',
+        style: boldTextStyle(color: primaryColor),
+      ),
       leading: IconButton(
-        icon: TapAssets.icons.icAppbarBack.svg(),
+        icon: SvgPicture.asset(TapAssets.icons.icAppbarBack.path),
         onPressed: () => {
           context.pop(),
         },
       ),
+      leadingWidth: 80,
       actions: actions ?? [],
       elevation: 0,
       backgroundColor: customBgColor,
-      titleSpacing: 4,
+      titleSpacing: 0,
     );
   }
 

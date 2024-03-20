@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_appbar.dart';
@@ -107,18 +108,21 @@ class _SchemeDetailsScreenContents
           children: [
             Image.memory(base64Decode(widget.schemeDetails.logo)),
             gapH16,
-            RichText(
-              text: TextSpan(
-                text: '${widget.schemeDetails.name1} ',
-                style: boldTextStyle(size: headingTextSize),
-                children: [
-                  WidgetSpan(child: TapAssets.icons.icLeftArrow.svg()),
-                  TextSpan(
-                      text: ' ${widget.schemeDetails.name2}',
-                      style: boldTextStyle(
-                          color: secondaryTextColor, size: headingTextSize)),
-                ],
-              ),
+            Row(
+              children: [
+                Text(
+                  widget.schemeDetails.name1,
+                  style: boldTextStyle(size: headingTextSize),
+                ),
+                gapW8,
+                SvgPicture.asset(TapAssets.icons.icLeftArrow.path),
+                gapW8,
+                Text(
+                  widget.schemeDetails.name2,
+                  style: boldTextStyle(
+                      size: headingTextSize, color: secondaryTextColor),
+                )
+              ],
             ),
             gapH12,
             Text(
@@ -192,14 +196,14 @@ class _SchemeDetailsScreenContents
 
   Widget clientsAndBackedBy() {
     List<Widget> clientsList = [
-      TapAssets.logos.google.image(),
-      TapAssets.logos.google.image(),
-      TapAssets.logos.google.image(),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
     ];
     List<Widget> backedByList = [
-      TapAssets.logos.google.image(),
-      TapAssets.logos.google.image(),
-      TapAssets.logos.google.image(),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
+      SvgPicture.asset(TapAssets.logos.icGoogle.path),
     ];
     return Padding(
         padding: const EdgeInsets.all(24),
@@ -213,9 +217,12 @@ class _SchemeDetailsScreenContents
             gapH12,
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: clientsList,
-              ),
+              child: Row(children: [
+                ...clientsList.map((item) => Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      child: item,
+                    )),
+              ]),
             ),
             gapH20,
             Text(
@@ -225,9 +232,12 @@ class _SchemeDetailsScreenContents
             gapH12,
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: backedByList,
-              ),
+              child: Row(children: [
+                ...backedByList.map((item) => Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      child: item,
+                    )),
+              ]),
             )
           ],
         ));
@@ -253,10 +263,10 @@ class _SchemeDetailsScreenContents
               child: Row(
                 children: [
                   ...highlightsList.map((item) => CustomDetailsCard(
-                        maxWidth: 300,
+                    maxWidth: 300,
                         message: item,
                         margin: const EdgeInsets.only(right: 16),
-                        icon: TapAssets.icons.icBulb.svg(),
+                        iconPath: TapAssets.icons.icBulb.path,
                       )),
                 ],
               ))
@@ -397,21 +407,21 @@ class _SchemeDetailsScreenContents
             ),
             gapH20,
             CustomDetailsCard(
-              icon: TapAssets.icons.icDocument.svg(),
+              iconPath: TapAssets.icons.icDocument.path,
               title: invDiscountingContractTitle,
               message: invDiscountingContractInfo,
               actionIconBtn: IconButton(
-                icon: TapAssets.icons.icDownload.svg(),
+                icon: SvgPicture.asset(TapAssets.icons.icDownload.path),
                 onPressed: () {},
               ),
             ),
             gapH16,
             CustomDetailsCard(
-              icon: TapAssets.icons.icDocument.svg(),
+              iconPath: TapAssets.icons.icTab.path,
               title: invDiscountingContractTitle,
               message: invDiscountingContractInfo,
               actionIconBtn: IconButton(
-                icon: TapAssets.icons.icDownload.svg(),
+                icon: SvgPicture.asset(TapAssets.icons.icDownload.path),
                 onPressed: () {},
               ),
             )

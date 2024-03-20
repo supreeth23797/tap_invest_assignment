@@ -88,7 +88,7 @@ TextStyle boldTextStyle({
   return TextStyle(
     fontSize: size ?? primaryTextSize,
     color: color ?? primaryTextColor,
-    fontWeight: weight ?? FontWeight.w600,
+    fontWeight: weight ?? FontWeight.w500,
     fontFamily: fontFamily,
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,

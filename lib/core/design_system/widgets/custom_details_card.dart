@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/styles.dart';
 
 class CustomDetailsCard extends StatelessWidget {
-  Widget icon;
+  String iconPath;
   String? title;
   String message;
   EdgeInsets? margin;
@@ -13,7 +14,7 @@ class CustomDetailsCard extends StatelessWidget {
 
   CustomDetailsCard({
     super.key,
-    required this.icon,
+    required this.iconPath,
     this.title,
     this.margin,
     this.maxWidth,
@@ -33,14 +34,16 @@ class CustomDetailsCard extends StatelessWidget {
               color: borderColor,
             )),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            icon,
+            SvgPicture.asset(iconPath),
+            gapH12,
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                    flex: 3,
+                    flex: 4,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
