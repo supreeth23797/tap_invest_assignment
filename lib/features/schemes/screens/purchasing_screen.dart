@@ -71,7 +71,7 @@ class PurchasingScreen extends ConsumerWidget {
             onSwipe: () {
               if (formKey.currentState!.validate()) {
                 final enteredAmount = getNumberFromString(controller.text);
-                if (enteredAmount <= schemeDetails.minInvestment) {
+                if (enteredAmount < schemeDetails.minInvestment) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       backgroundColor: primaryColor,
                       content: Text(
