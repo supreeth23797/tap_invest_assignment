@@ -3,9 +3,9 @@ import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/styles.dart';
 
 class CustomTableCell extends StatelessWidget {
-  CustomTableCell({super.key, this.title, required this.body});
+  CustomTableCell({super.key, required this.title, required this.body});
 
-  String? title;
+  String title;
   Widget body;
 
   @override
@@ -15,13 +15,11 @@ class CustomTableCell extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[
-            Text(
-              title!,
-              style: secondaryTitleTextStyle(),
-            ),
-            gapH8
-          ],
+          Text(
+            title.toUpperCase(),
+            style: secondaryTitleTextStyle(),
+          ),
+          gapH8,
           body
         ],
       ),

@@ -30,7 +30,7 @@ class CustomChip extends StatelessWidget {
           elevation: 0,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-            child: Text(text,
+            child: Text(text.toUpperCase(),
                 style: secondaryTitleTextStyle(
                   color: isSelected ? buttonTextColor : secondaryTitleColor,
                 )),

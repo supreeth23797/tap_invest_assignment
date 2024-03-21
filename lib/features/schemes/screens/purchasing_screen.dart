@@ -69,7 +69,7 @@ class PurchasingScreen extends ConsumerWidget {
                 Text(swipeToPay.toUpperCase(), style: boldTextStyle(size: 12)),
             onSwipe: () {
               if (formKey.currentState!.validate()) {
-                final enteredAmount = double.parse(controller.text);
+                final enteredAmount = getNumberFromString(controller.text);
                 if (enteredAmount <= schemeDetails.minInvestment) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       backgroundColor: primaryColor,
@@ -117,7 +117,7 @@ class PurchasingScreen extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            enterAmount,
+            enterAmount.toUpperCase(),
             style: secondaryTitleTextStyle(size: 12),
           ),
           IntrinsicWidth(
@@ -126,20 +126,25 @@ class PurchasingScreen extends ConsumerWidget {
             style: boldTextStyle(size: 24),
             keyboardType: TextInputType.number,
             onChanged: (enteredAmount) {
+              getNumberFromString(enteredAmount);
               if (formKey.currentState!.validate()) {
                 ref.read(requiredAmountProvider.notifier).update((state) =>
                     calculateRequiredAmount(
-                        double.parse(enteredAmount), AVAILABLE_BALANCE));
+                        getNumberFromString(enteredAmount), AVAILABLE_BALANCE));
                 ref.read(returnsAmountProvider.notifier).update((state) =>
-                    calculateTotalReturns(double.parse(enteredAmount),
+                    calculateTotalReturns(getNumberFromString(enteredAmount),
                         schemeDetails.netYield, schemeDetails.minInvestment));
               }
             },
             inputFormatters: [
               LengthLimitingTextInputFormatter(MAX_AMOUNT_LENGTH),
               FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+              CurrencyInputFormatter()
             ],
-            validator: validateInvestmentAmount,
+            validator: (value) {
+              return validateInvestmentAmount(
+                  getNumberFromString(value ?? '').toString());
+            },
             decoration: InputDecoration(
               errorMaxLines: 1,
               isDense: true,

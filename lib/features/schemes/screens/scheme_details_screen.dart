@@ -87,7 +87,7 @@ class _SchemeDetailsScreenContents
             children: [
               RichText(
                 text: TextSpan(
-                  text: filled,
+                  text: filled.toUpperCase(),
                   style: secondaryTitleTextStyle(),
                   children: [
                     TextSpan(text: '\n30%', style: primaryTextStyle(size: 18)),
