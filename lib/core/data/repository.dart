@@ -15,6 +15,11 @@ class Repository {
         await apis.getSchemeDetails(scheme);
     return networkSchemeDetails.asModel();
   }
+
+  Future<int> makePurchase(double amount) async {
+    int resourceId = await apis.makePurchase(amount);
+    return resourceId;
+  }
 }
 
 final repoProvider = Provider((ref) {

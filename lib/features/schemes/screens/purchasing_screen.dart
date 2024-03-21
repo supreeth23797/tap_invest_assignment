@@ -18,6 +18,7 @@ import '../../../core/design_system/widgets/custom_key_value_view.dart';
 import '../../../utils/calculations.dart';
 import '../../../utils/validators.dart';
 import '../../routing/app_router.dart';
+import '../purchase_notifier.dart';
 
 final requiredAmountProvider = StateProvider.autoDispose<double>((ref) => 0);
 final returnsAmountProvider = StateProvider.autoDispose<double>((ref) => 0);
@@ -81,6 +82,9 @@ class PurchasingScreen extends ConsumerWidget {
                       content: Text(requiredAmountValidator)));
                 } else {
                   //POST API call
+                  ref
+                      .read(purchaseNotifierProvider.notifier)
+                      .makePurchase(getNumberFromString(controller.text));
                   context.pushNamed(AppRoute.purchaseConfirmation.name);
                 }
               }
@@ -153,12 +157,12 @@ class PurchasingScreen extends ConsumerWidget {
               hintText:
                   'Min ${getIndianFormattedAmount(schemeDetails.minInvestment, hideCurrency: true)}',
               hintStyle: boldTextStyle(size: 24, color: textHintColor),
-                  focusedBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  focusedErrorBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
+              focusedBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+            ),
           ))
         ],
       ),
