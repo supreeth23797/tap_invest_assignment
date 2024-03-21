@@ -4,10 +4,18 @@ import 'package:go_router/go_router.dart';
 import 'package:tapinvest/core/models/scheme_details.dart';
 import 'package:tapinvest/features/schemes/screens/purchase_confirmation_screen.dart';
 import 'package:tapinvest/features/schemes/screens/purchasing_screen.dart';
+import 'package:tapinvest/features/schemes/screens/sign_contract_screen.dart';
+import 'package:tapinvest/features/schemes/screens/success_screen.dart';
 
 import '../schemes/screens/scheme_details_screen.dart';
 
-enum AppRoute { schemeDetails, purchasing, purchaseConfirmation }
+enum AppRoute {
+  schemeDetails,
+  purchasing,
+  purchaseConfirmation,
+  signContract,
+  successScreen
+}
 
 class NavigationService {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -42,6 +50,18 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             name: AppRoute.purchaseConfirmation.name,
             builder: (context, state) {
               return PurchaseConfirmationScreen();
+            }),
+        GoRoute(
+            path: '/signContract',
+            name: AppRoute.signContract.name,
+            builder: (context, state) {
+              return SignContractScreen();
+            }),
+        GoRoute(
+            path: '/successScreen',
+            name: AppRoute.successScreen.name,
+            builder: (context, state) {
+              return SuccessScreen();
             }),
       ]);
 });

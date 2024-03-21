@@ -4,7 +4,6 @@
 /// *****************************************************
 
 import 'package:flutter/services.dart';
-
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
@@ -16,14 +15,10 @@ class $AssetsAnimationsGen {
   const $AssetsAnimationsGen();
 
   /// File path: assets/animations/Flow 1.json
-  String get flow1Json => 'packages/tapinvest/assets/animations/Flow 1.json';
-
-  /// File path: assets/animations/Flow 1.lottie
-  String get flow1Lottie =>
-      'packages/tapinvest/assets/animations/Flow 1.lottie';
+  String get flow1 => 'packages/tapinvest/assets/animations/Flow 1.json';
 
   /// List of all assets
-  List<String> get values => [flow1Json, flow1Lottie];
+  List<String> get values => [flow1];
 }
 
 class $AssetsIconsGen {
@@ -56,26 +51,41 @@ class $AssetsIconsGen {
       [icAppbarBack, icBulb, icDocument, icDownload, icLeftArrow, icTab];
 }
 
+class $AssetsIllustrationsGen {
+  const $AssetsIllustrationsGen();
+
+  /// File path: assets/illustrations/ic_contract.png
+  AssetGenImage get icContract =>
+      const AssetGenImage('assets/illustrations/ic_contract.png');
+
+  /// File path: assets/illustrations/ic_generating_contract.svg
+  SvgGenImage get icGeneratingContract =>
+      const SvgGenImage('assets/illustrations/ic_generating_contract.svg');
+
+  /// File path: assets/illustrations/ic_payment_done.svg
+  SvgGenImage get icPaymentDone =>
+      const SvgGenImage('assets/illustrations/ic_payment_done.svg');
+
+  /// File path: assets/illustrations/ic_success.svg
+  SvgGenImage get icSuccess =>
+      const SvgGenImage('assets/illustrations/ic_success.svg');
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [icContract, icGeneratingContract, icPaymentDone, icSuccess];
+}
+
 class $AssetsLogosGen {
   const $AssetsLogosGen();
 
   /// File path: assets/logos/google.png
   AssetGenImage get google => const AssetGenImage('assets/logos/google.png');
 
-  /// File path: assets/logos/ic_generating_contract.svg
-  SvgGenImage get icGeneratingContract =>
-      const SvgGenImage('assets/logos/ic_generating_contract.svg');
-
   /// File path: assets/logos/ic_google.svg
   SvgGenImage get icGoogle => const SvgGenImage('assets/logos/ic_google.svg');
 
-  /// File path: assets/logos/ic_payment_done.svg
-  SvgGenImage get icPaymentDone =>
-      const SvgGenImage('assets/logos/ic_payment_done.svg');
-
   /// List of all assets
-  List<dynamic> get values =>
-      [google, icGeneratingContract, icGoogle, icPaymentDone];
+  List<dynamic> get values => [google, icGoogle];
 }
 
 class TapAssets {
@@ -85,6 +95,8 @@ class TapAssets {
 
   static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsIllustrationsGen illustrations =
+      $AssetsIllustrationsGen();
   static const $AssetsLogosGen logos = $AssetsLogosGen();
 }
 

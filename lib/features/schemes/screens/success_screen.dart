@@ -1,27 +1,21 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:tapinvest/core/design_system/colors.dart';
-import 'package:tapinvest/features/routing/app_router.dart';
 import 'package:tapinvest/gen/assets.gen.dart';
 
-final svgProvider = StateProvider.autoDispose<String>(
-    (ref) => TapAssets.illustrations.icPaymentDone.path);
+import '../../../core/design_system/colors.dart';
+import '../../routing/app_router.dart';
 
-class PurchaseConfirmationScreen extends ConsumerStatefulWidget {
-  PurchaseConfirmationScreen({super.key});
+class SuccessScreen extends ConsumerStatefulWidget {
+  SuccessScreen({super.key});
 
   @override
-  ConsumerState<PurchaseConfirmationScreen> createState() =>
-      PurchaseConfirmationScreenContents();
+  ConsumerState<SuccessScreen> createState() => SuccessScreenContents();
 }
 
-class PurchaseConfirmationScreenContents
-    extends ConsumerState<PurchaseConfirmationScreen>
+class SuccessScreenContents extends ConsumerState<SuccessScreen>
     with TickerProviderStateMixin {
   late AnimationController animationController;
 
@@ -29,23 +23,12 @@ class PurchaseConfirmationScreenContents
   void initState() {
     super.initState();
     animationController = AnimationController(vsync: this);
-    initDelay(); //Assuming Payment delay
+    redirectDelay();
   }
 
-  initDelay() async {
+  redirectDelay() async {
     Future.delayed(const Duration(seconds: 2), () {
-      startDocGen();
-      ref
-          .read(svgProvider.notifier)
-          .update((state) => TapAssets.illustrations.icGeneratingContract.path);
-      animationController.repeat();
-    });
-  }
-
-  //Assuming Doc generation delay
-  startDocGen() async {
-    Future.delayed(const Duration(seconds: 3), () {
-      context.replaceNamed(AppRoute.signContract.name);
+      context.goNamed(AppRoute.schemeDetails.name);
     });
   }
 
@@ -57,7 +40,7 @@ class PurchaseConfirmationScreenContents
           fit: StackFit.expand,
           alignment: AlignmentDirectional.center,
           children: [
-            SvgPicture.asset(ref.watch(svgProvider)),
+            SvgPicture.asset(TapAssets.illustrations.icSuccess.path),
             Lottie.asset(
               'assets/animations/Flow 1.json',
               controller: animationController,

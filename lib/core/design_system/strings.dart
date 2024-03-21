@@ -31,3 +31,4 @@ const balance = 'Balance';
 const requiredTxt = 'Required';
 const investmentAmountValidator = 'Please enter an amount';
 const swipeToPay = 'Swipe to pay';
+const signContract = 'Sign Contract';
