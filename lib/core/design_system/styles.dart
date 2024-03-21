@@ -5,6 +5,7 @@ import 'colors.dart';
 const double headingTextSize = 18;
 const double primaryTextSize = 16;
 const double secondaryTextSize = 14;
+const double secondaryTitleTextSize = 10;
 
 TextStyle primaryTextStyle({
   double? size,
@@ -70,7 +71,7 @@ TextStyle secondaryTextStyle({
   );
 }
 
-TextStyle boldTextStyle({
+TextStyle semiBoldTextStyle({
   double? size,
   Color? color,
   FontWeight? weight,
@@ -89,6 +90,70 @@ TextStyle boldTextStyle({
     fontSize: size ?? primaryTextSize,
     color: color ?? primaryTextColor,
     fontWeight: weight ?? FontWeight.w500,
+    fontFamily: fontFamily,
+    letterSpacing: letterSpacing,
+    fontStyle: fontStyle,
+    decoration: decoration,
+    decorationStyle: textDecorationStyle,
+    decorationColor: decorationColor,
+    wordSpacing: wordSpacing,
+    textBaseline: textBaseline,
+    backgroundColor: backgroundColor,
+    height: height,
+  );
+}
+
+TextStyle boldTextStyle({
+  double? size,
+  Color? color,
+  FontWeight? weight,
+  String? fontFamily,
+  double? letterSpacing,
+  FontStyle? fontStyle,
+  double? wordSpacing,
+  TextDecoration? decoration,
+  TextDecorationStyle? textDecorationStyle,
+  TextBaseline? textBaseline,
+  Color? decorationColor,
+  Color? backgroundColor,
+  double? height,
+}) {
+  return TextStyle(
+    fontSize: size ?? headingTextSize,
+    color: color ?? primaryTextColor,
+    fontWeight: weight ?? FontWeight.bold,
+    fontFamily: fontFamily,
+    letterSpacing: letterSpacing,
+    fontStyle: fontStyle,
+    decoration: decoration,
+    decorationStyle: textDecorationStyle,
+    decorationColor: decorationColor,
+    wordSpacing: wordSpacing,
+    textBaseline: textBaseline,
+    backgroundColor: backgroundColor,
+    height: height,
+  );
+}
+
+TextStyle secondaryTitleTextStyle({
+  double? size,
+  Color? color,
+  FontWeight? weight,
+  String? fontFamily,
+  double? letterSpacing,
+  FontStyle? fontStyle,
+  double? wordSpacing,
+  TextDecoration? decoration,
+  TextDecorationStyle? textDecorationStyle,
+  TextBaseline? textBaseline,
+  Color? decorationColor,
+  Color? backgroundColor,
+  double? height,
+}) {
+  return TextStyle(
+    fontSize: size ?? secondaryTitleTextSize,
+    color: color ?? secondaryTitleColor,
+    fontWeight: weight ?? FontWeight.bold,
     fontFamily: fontFamily,
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,

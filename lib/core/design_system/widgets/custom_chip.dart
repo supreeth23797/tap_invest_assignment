@@ -31,9 +31,9 @@ class CustomChip extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
             child: Text(text,
-                style: boldTextStyle(
-                    color: isSelected ? buttonTextColor : secondaryTitleColor,
-                    size: 10)),
+                style: secondaryTitleTextStyle(
+                  color: isSelected ? buttonTextColor : secondaryTitleColor,
+                )),
           )),
     );
   }

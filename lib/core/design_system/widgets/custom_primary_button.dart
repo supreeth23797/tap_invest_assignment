@@ -29,7 +29,7 @@ class CustomPrimaryButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: boldTextStyle(color: buttonTextColor),
+          style: semiBoldTextStyle(color: buttonTextColor),
         ));
   }
 }

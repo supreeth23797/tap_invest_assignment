@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/styles.dart';
 
@@ -19,7 +18,7 @@ class CustomTableCell extends StatelessWidget {
           if (title != null) ...[
             Text(
               title!,
-              style: boldTextStyle(color: secondaryTitleColor, size: 10),
+              style: secondaryTitleTextStyle(),
             ),
             gapH8
           ],

@@ -18,7 +18,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
       toolbarHeight: 90,
       title: Text(
         title ?? '',
-        style: boldTextStyle(color: primaryColor),
+        style: semiBoldTextStyle(color: primaryColor),
       ),
       leading: IconButton(
         icon: SvgPicture.asset(TapAssets.icons.icAppbarBack.path),

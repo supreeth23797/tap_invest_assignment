@@ -17,27 +17,16 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SchemeDetails {
   String get name1 => throw _privateConstructorUsedError;
-
   String get name2 => throw _privateConstructorUsedError;
-
   String get details => throw _privateConstructorUsedError;
-
   String get highlights => throw _privateConstructorUsedError;
-
   int get minInvestment => throw _privateConstructorUsedError;
-
   int get tenure => throw _privateConstructorUsedError;
-
   String get tenureUnit => throw _privateConstructorUsedError;
-
   double get netYield => throw _privateConstructorUsedError;
-
   double get capRaisedPercentage => throw _privateConstructorUsedError;
-
   double get capRaised => throw _privateConstructorUsedError;
-
   int get totalDeals => throw _privateConstructorUsedError;
-
   int get activeDeals => throw _privateConstructorUsedError;
   int get maturedDeals => throw _privateConstructorUsedError;
   double get onTimePaymentPercentage => throw _privateConstructorUsedError;
@@ -461,22 +450,16 @@ abstract class _SchemeDetails implements SchemeDetails {
 
   @override
   String get name1;
-
   @override
   String get name2;
-
   @override
   String get details;
-
   @override
   String get highlights;
-
   @override
   int get minInvestment;
-
   @override
   int get tenure;
-
   @override
   String get tenureUnit;
   @override

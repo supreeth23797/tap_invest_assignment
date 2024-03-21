@@ -48,7 +48,7 @@ class CustomDetailsCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         if (title != null) ...[
-                          Text(title!, style: boldTextStyle(size: 16)),
+                          Text(title!, style: semiBoldTextStyle(size: 16)),
                           gapH8,
                         ],
                         Text(

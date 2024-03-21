@@ -11,3 +11,5 @@ const Color buttonTextColor = Colors.white;
 const Color tableBgColor = Color.fromRGBO(0, 0, 0, 0.02);
 const Color secondaryTitleColor = Color(0xFF78716C);
 const Color chipBgColor = Color(0xFFE7E5E4);
+const Color textHintColor = Color(0xFFA8A29E);
+const Color swipeButtonBg = Color(0xFFE4E4E7);

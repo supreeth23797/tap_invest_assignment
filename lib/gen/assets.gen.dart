@@ -4,12 +4,27 @@
 /// *****************************************************
 
 import 'package:flutter/services.dart';
+
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+class $AssetsAnimationsGen {
+  const $AssetsAnimationsGen();
+
+  /// File path: assets/animations/Flow 1.json
+  String get flow1Json => 'packages/tapinvest/assets/animations/Flow 1.json';
+
+  /// File path: assets/animations/Flow 1.lottie
+  String get flow1Lottie =>
+      'packages/tapinvest/assets/animations/Flow 1.lottie';
+
+  /// List of all assets
+  List<String> get values => [flow1Json, flow1Lottie];
+}
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
@@ -47,11 +62,20 @@ class $AssetsLogosGen {
   /// File path: assets/logos/google.png
   AssetGenImage get google => const AssetGenImage('assets/logos/google.png');
 
+  /// File path: assets/logos/ic_generating_contract.svg
+  SvgGenImage get icGeneratingContract =>
+      const SvgGenImage('assets/logos/ic_generating_contract.svg');
+
   /// File path: assets/logos/ic_google.svg
   SvgGenImage get icGoogle => const SvgGenImage('assets/logos/ic_google.svg');
 
+  /// File path: assets/logos/ic_payment_done.svg
+  SvgGenImage get icPaymentDone =>
+      const SvgGenImage('assets/logos/ic_payment_done.svg');
+
   /// List of all assets
-  List<dynamic> get values => [google, icGoogle];
+  List<dynamic> get values =>
+      [google, icGeneratingContract, icGoogle, icPaymentDone];
 }
 
 class TapAssets {
@@ -59,6 +83,7 @@ class TapAssets {
 
   static const String package = 'tapinvest';
 
+  static const $AssetsAnimationsGen animations = $AssetsAnimationsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsLogosGen logos = $AssetsLogosGen();
 }

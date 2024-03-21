@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 import 'package:tapinvest/core/design_system/sizes.dart';
 import 'package:tapinvest/core/design_system/widgets/custom_appbar.dart';
@@ -19,7 +20,9 @@ import '../../../core/design_system/strings.dart';
 import '../../../core/design_system/styles.dart';
 import '../../../core/design_system/widgets/custom_divider.dart';
 import '../../../core/design_system/widgets/custom_table.dart';
+import '../../../utils/formats.dart';
 import '../../common/async_value_widget.dart';
+import '../../routing/app_router.dart';
 import '../schemes_service.dart';
 
 class SchemeDetailsScreen extends StatelessWidget {
@@ -85,16 +88,18 @@ class _SchemeDetailsScreenContents
               RichText(
                 text: TextSpan(
                   text: filled,
-                  style: secondaryTextStyle(size: 10),
+                  style: secondaryTitleTextStyle(),
                   children: [
                     TextSpan(text: '\n30%', style: primaryTextStyle(size: 18)),
                   ],
                 ),
               ),
               CustomPrimaryButton(
-                text: tapToInvest,
-                onPressed: () {},
-              )
+                  text: tapToInvest,
+                  onPressed: () {
+                    context.pushNamed(AppRoute.purchasing.name,
+                        extra: widget.schemeDetails);
+                  })
             ],
           ),
         ));
@@ -142,7 +147,8 @@ class _SchemeDetailsScreenContents
                       style: primaryTextStyle(color: secondaryTextColor),
                       children: [
                         TextSpan(
-                            text: widget.schemeDetails.minInvestment.toString(),
+                            text: getCompactReadableAmount(
+                                widget.schemeDetails.minInvestment),
                             style: primaryTextStyle()),
                       ],
                     ),
@@ -168,7 +174,7 @@ class _SchemeDetailsScreenContents
                   title: netYield,
                   body: RichText(
                     text: TextSpan(
-                      text: widget.schemeDetails.netYield.toString(),
+                      text: getFormattedFraction(widget.schemeDetails.netYield),
                       style: primaryTextStyle(),
                       children: [
                         TextSpan(text: '%', style: secondaryTextStyle()),
@@ -180,7 +186,8 @@ class _SchemeDetailsScreenContents
                   title: raised,
                   body: RichText(
                     text: TextSpan(
-                      text: widget.schemeDetails.capRaisedPercentage.toString(),
+                      text: getFormattedFraction(
+                          widget.schemeDetails.capRaisedPercentage),
                       style: primaryTextStyle(),
                       children: [
                         TextSpan(text: '%', style: secondaryTextStyle()),
@@ -212,7 +219,7 @@ class _SchemeDetailsScreenContents
           children: [
             Text(
               clients,
-              style: boldTextStyle(),
+              style: semiBoldTextStyle(),
             ),
             gapH12,
             SingleChildScrollView(
@@ -227,7 +234,7 @@ class _SchemeDetailsScreenContents
             gapH20,
             Text(
               backedBy,
-              style: boldTextStyle(),
+              style: semiBoldTextStyle(),
             ),
             gapH12,
             SingleChildScrollView(
@@ -255,7 +262,7 @@ class _SchemeDetailsScreenContents
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Text(
             highlight,
-            style: boldTextStyle(),
+            style: semiBoldTextStyle(),
           ),
           gapH20,
           SingleChildScrollView(
@@ -294,7 +301,7 @@ class _SchemeDetailsScreenContents
         children: [
           Text(
             keyMetric,
-            style: boldTextStyle(),
+            style: semiBoldTextStyle(),
           ),
           gapH20,
           SingleChildScrollView(
@@ -345,7 +352,8 @@ class _SchemeDetailsScreenContents
               style: secondaryTextStyle(),
               children: [
                 TextSpan(
-                    text: widget.schemeDetails.capRaised.toString(),
+                    text: getCompactReadableAmount(
+                        widget.schemeDetails.capRaised),
                     style: primaryTextStyle()),
               ],
             ),
@@ -371,7 +379,8 @@ class _SchemeDetailsScreenContents
           title: activeDeals,
           body: RichText(
             text: TextSpan(
-              text: widget.schemeDetails.onTimePaymentPercentage.toString(),
+              text: getFormattedFraction(
+                  widget.schemeDetails.onTimePaymentPercentage),
               style: primaryTextStyle(),
               children: [
                 TextSpan(text: '%', style: secondaryTextStyle()),
@@ -403,7 +412,7 @@ class _SchemeDetailsScreenContents
           children: [
             Text(
               documents,
-              style: boldTextStyle(),
+              style: semiBoldTextStyle(),
             ),
             gapH20,
             CustomDetailsCard(
