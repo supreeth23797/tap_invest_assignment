@@ -122,11 +122,11 @@ class PurchasingScreen extends ConsumerWidget {
           ),
           IntrinsicWidth(
               child: TextFormField(
+                textAlign: TextAlign.center,
             controller: controller,
             style: boldTextStyle(size: 24),
             keyboardType: TextInputType.number,
             onChanged: (enteredAmount) {
-              getNumberFromString(enteredAmount);
               if (formKey.currentState!.validate()) {
                 ref.read(requiredAmountProvider.notifier).update((state) =>
                     calculateRequiredAmount(
@@ -141,13 +141,9 @@ class PurchasingScreen extends ConsumerWidget {
               FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
               CurrencyInputFormatter()
             ],
-            validator: (value) {
-              return validateInvestmentAmount(
-                  getNumberFromString(value ?? '').toString());
-            },
+            validator: validateInvestmentAmount,
             decoration: InputDecoration(
               errorMaxLines: 1,
-              isDense: true,
               prefixIcon: Text(
                 '$CURRENCY ',
                 style: secondaryTextStyle(size: 24),
@@ -157,12 +153,12 @@ class PurchasingScreen extends ConsumerWidget {
               hintText:
                   'Min ${getIndianFormattedAmount(schemeDetails.minInvestment, hideCurrency: true)}',
               hintStyle: boldTextStyle(size: 24, color: textHintColor),
-              focusedBorder: InputBorder.none,
-              errorBorder: InputBorder.none,
-              focusedErrorBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-              disabledBorder: InputBorder.none,
-            ),
+                  focusedBorder: InputBorder.none,
+                  errorBorder: InputBorder.none,
+                  focusedErrorBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                ),
           ))
         ],
       ),

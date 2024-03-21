@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:isolate';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -22,8 +25,12 @@ import '../../../core/design_system/widgets/custom_divider.dart';
 import '../../../core/design_system/widgets/custom_table.dart';
 import '../../../utils/formats.dart';
 import '../../common/async_value_widget.dart';
+import '../../common/download_document.dart';
 import '../../routing/app_router.dart';
 import '../schemes_service.dart';
+
+const PORT_NAME = 'downloader_send_port';
+final ReceivePort _port = ReceivePort();
 
 class SchemeDetailsScreen extends StatelessWidget {
   SchemeDetailsScreen({super.key, required this.scheme});
@@ -59,6 +66,25 @@ class SchemeDetailsScreenContents extends ConsumerStatefulWidget {
 class _SchemeDetailsScreenContents
     extends ConsumerState<SchemeDetailsScreenContents> {
   String selectedChip = financials;
+
+  @override
+  void initState() {
+    super.initState();
+    IsolateNameServer.registerPortWithName(_port.sendPort, PORT_NAME);
+    FlutterDownloader.registerCallback(downloadCallback);
+  }
+
+  @override
+  void dispose() {
+    IsolateNameServer.removePortNameMapping(PORT_NAME);
+    super.dispose();
+  }
+
+  @pragma('vm:entry-point')
+  static void downloadCallback(String id, int status, int progress) {
+    final SendPort send = IsolateNameServer.lookupPortByName(PORT_NAME)!;
+    send.send([id, status, progress]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -421,7 +447,10 @@ class _SchemeDetailsScreenContents
               message: invDiscountingContractInfo,
               actionIconBtn: IconButton(
                 icon: SvgPicture.asset(TapAssets.icons.icDownload.path),
-                onPressed: () {},
+                onPressed: () {
+                  downloadDocument(
+                      widget.schemeDetails.invoiceDiscountingContract);
+                },
               ),
             ),
             gapH16,
@@ -431,7 +460,9 @@ class _SchemeDetailsScreenContents
               message: invDiscountingContractInfo,
               actionIconBtn: IconButton(
                 icon: SvgPicture.asset(TapAssets.icons.icDownload.path),
-                onPressed: () {},
+                onPressed: () {
+                  downloadDocument(widget.schemeDetails.companyPitchDeck);
+                },
               ),
             )
           ],

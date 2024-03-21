@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:tapinvest/core/design_system/colors.dart';
 
 import 'features/routing/app_router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
+  Map<Permission, PermissionStatus> statuses =
+      await [Permission.notification, Permission.storage].request();
   runApp(const ProviderScope(child: MyApp()));
 }
 
