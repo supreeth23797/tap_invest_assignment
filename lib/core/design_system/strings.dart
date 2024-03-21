@@ -30,5 +30,7 @@ const irr = 'IRR';
 const balance = 'Balance';
 const requiredTxt = 'Required';
 const investmentAmountValidator = 'Please enter an amount';
+const minInvestmentAmountValidator = 'Minimum investment amount is';
+const requiredAmountValidator = 'Insufficient balance in your account';
 const swipeToPay = 'Swipe to pay';
 const signContract = 'Sign Contract';

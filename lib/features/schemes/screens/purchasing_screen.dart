@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:go_router/go_router.dart';
@@ -66,10 +67,24 @@ class PurchasingScreen extends ConsumerWidget {
             activeTrackColor: swipeButtonBg,
             child:
                 Text(swipeToPay.toUpperCase(), style: boldTextStyle(size: 12)),
-            onSwipeEnd: () {
-              context.pushNamed(AppRoute.purchaseConfirmation.name);
+            onSwipe: () {
+              if (formKey.currentState!.validate()) {
+                final enteredAmount = double.parse(controller.text);
+                if (enteredAmount <= schemeDetails.minInvestment) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: primaryColor,
+                      content: Text(
+                          '$minInvestmentAmountValidator ${getIndianFormattedAmount(schemeDetails.minInvestment)}')));
+                } else if (ref.watch(requiredAmountProvider) > 0) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: primaryColor,
+                      content: Text(requiredAmountValidator)));
+                } else {
+                  //POST API call
+                  context.pushNamed(AppRoute.purchaseConfirmation.name);
+                }
+              }
             },
-            onSwipe: () {},
           ),
         ],
       )),
@@ -105,45 +120,45 @@ class PurchasingScreen extends ConsumerWidget {
             enterAmount,
             style: secondaryTitleTextStyle(size: 12),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                  child: Text(
-                CURRENCY,
-                style: boldTextStyle(color: textHintColor, size: 24),
-              )),
-              Flexible(
-                  child: TextFormField(
-                      controller: controller,
-                      style: boldTextStyle(size: 24),
-                      onChanged: (enteredAmount) {
-                        if (formKey.currentState!.validate()) {
-                          ref.read(requiredAmountProvider.notifier).update(
-                              (state) => calculateRequiredAmount(
-                                  double.parse(enteredAmount),
-                                  AVAILABLE_BALANCE));
-                          ref.read(returnsAmountProvider.notifier).update(
-                              (state) => calculateTotalReturns(
-                                  double.parse(enteredAmount),
-                                  schemeDetails.netYield,
-                                  schemeDetails.minInvestment));
-                        }
-                      },
-                      validator: validateInvestmentAmount,
-                      decoration: InputDecoration(
-                        hintText: 'Min ${schemeDetails.minInvestment}',
-                        hintStyle:
-                            boldTextStyle(size: 24, color: textHintColor),
-                        focusedBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        focusedErrorBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                      ))),
+          IntrinsicWidth(
+              child: TextFormField(
+            controller: controller,
+            style: boldTextStyle(size: 24),
+            keyboardType: TextInputType.number,
+            onChanged: (enteredAmount) {
+              if (formKey.currentState!.validate()) {
+                ref.read(requiredAmountProvider.notifier).update((state) =>
+                    calculateRequiredAmount(
+                        double.parse(enteredAmount), AVAILABLE_BALANCE));
+                ref.read(returnsAmountProvider.notifier).update((state) =>
+                    calculateTotalReturns(double.parse(enteredAmount),
+                        schemeDetails.netYield, schemeDetails.minInvestment));
+              }
+            },
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(MAX_AMOUNT_LENGTH),
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
             ],
-          )
+            validator: validateInvestmentAmount,
+            decoration: InputDecoration(
+              errorMaxLines: 1,
+              isDense: true,
+              prefixIcon: Text(
+                '$CURRENCY ',
+                style: secondaryTextStyle(size: 24),
+              ),
+              prefixIconConstraints:
+                  const BoxConstraints(minWidth: 0, minHeight: 0),
+              hintText:
+                  'Min ${getIndianFormattedAmount(schemeDetails.minInvestment, hideCurrency: true)}',
+              hintStyle: boldTextStyle(size: 24, color: textHintColor),
+              focusedBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+            ),
+          ))
         ],
       ),
     );
@@ -161,7 +176,9 @@ class PurchasingScreen extends ConsumerWidget {
               style: secondaryTextStyle(),
               children: [
                 TextSpan(
-                    text: returns == 0 ? ' - ' : returns.toString(),
+                    text: returns == 0
+                        ? ' - '
+                        : getIndianFormattedAmount(returns, hideCurrency: true),
                     style: primaryTextStyle()),
               ],
             ))),

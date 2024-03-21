@@ -15,7 +15,7 @@ class CustomKeyValueView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(noPadding ? 0 : 24),
+        padding: EdgeInsets.all(noPadding ? 0 : 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
